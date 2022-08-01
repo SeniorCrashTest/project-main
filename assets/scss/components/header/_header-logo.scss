@@ -1,0 +1,15 @@
+.header-logo {
+  letter-spacing: 0.25em;
+
+  font-size: 24px;
+
+
+
+  &__accent {
+    margin-right: 7px;
+    padding: 17px 5px 17px 5px;
+    // display: inline-block;
+
+    border: 3px solid #d53d27;
+  }
+}
