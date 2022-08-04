@@ -1,3 +1,6 @@
+@use "../../presets" as *;
+@use "../../mixin" as *;
+
 .header-menu {
 	position: absolute;
 	z-index: 2;
@@ -7,7 +10,6 @@
 
 	&__container {
 		display: flex;
-
 		align-items: center;
 
 		@extend %container;

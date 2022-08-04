@@ -1,3 +1,6 @@
+@use "../../presets" as *;
+@use "../../mixin" as *;
+
 .header-content {
 	position: relative;
 	z-index: 1;
