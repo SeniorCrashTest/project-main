@@ -1,36 +1,62 @@
-@use "../presets/" as *;
-@use "../mixins/" as *;
+@use "../presets" as *;
+@use "../mixins" as *;
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
+.btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-html {
-	overflow-y: scroll;
+	padding: 0.5em 1em;
 
-	font-family: $font-main;
-	font-size: $font-size;
-}
-
-body {
+	transition: background-color 0.5s;
 	letter-spacing: 0.1em;
 
-	color: $color-primary;
-	background-color: $color-light;
+	border: 2px solid $color-light;
+
+	&:hover,
+	&:focus {
+		background-color: $color-accent;
+	}
+
+	&--light {
+		background-color: rgba($color-light, 0.1);
+
+		@include lg-min {
+			min-width: 250px;
+			height: 60px;
+
+			font-size: 1.125rem;
+		}
+
+		@include lg-md {
+			min-width: 200px;
+			height: 50px;
+		}
+
+		@include md {
+			min-width: 170px;
+			height: 40px;
+		}
+	}
+
+	&--primary {
+		height: 60px;
+
+		border: 2px solid $color-primary;
+		background-color: rgba($color-primary, 0.8);
+
+		font-size: 1.125rem;
+
+		@include sm-min {
+			width: 350px;
+		}
+
+		@include sm {
+			width: 100%;
+		}
+	}
 }
 
-h1 {
-	letter-spacing: 0.08em;
-
-	font-family: $font-header;
-	font-weight: 300;
-	line-height: 1.2em;
-}
-
-a {
-	text-decoration: none;
-
-	color: $color-light;
+.hidden {
+	@include visually-hidden;
 }
