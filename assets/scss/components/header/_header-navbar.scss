@@ -71,28 +71,36 @@
 		@include md {
 			display: none;
 			@include unlist;
-		}
-
-
-
-		&.active {
-			display: block;
-			background-color: red;
+			background-color: rgba($color-gray-dark, 0.9);
 			position: absolute;
-			right: 0;
+			right: 20px;
+			top: 100%;
+			text-align: right;
+			box-shadow: 0px 5px 15px darken($color-gray-dark, 20%);
 		}
-	}
 
 
 	&__item {
 		margin: $gap $gap-sm;
+
+		@include md {
+			margin: $gap $gap-sm;
+		}
+
 	}
 
 
 	&__link {
 		display: block;
 
-		padding: $gap $gap-sm;
+		@include md-min {
+			padding: $gap $gap-sm;
+		}
+
+		@include md {
+			padding: $gap-sm $gap;
+
+		}
 
 		transition: color 0.5s;
 		letter-spacing: 0.09em;

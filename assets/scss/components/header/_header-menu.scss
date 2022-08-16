@@ -8,8 +8,9 @@
 	right: 0;
 	left: 0;
 
-	@include md-min {
+	@include md {
 		background-color: rgba($color-gray-dark, 0.25);
+		box-shadow: -5px -10px 30px darken($color-gray-dark, 40%);
 	}
 
 	&__container {
