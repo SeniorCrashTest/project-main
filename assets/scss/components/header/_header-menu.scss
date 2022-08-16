@@ -2,17 +2,21 @@
 @use "../../mixins/" as *;
 
 .header-menu {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  left: 0;
+	position: absolute;
+	z-index: 2;
+	top: 0;
+	right: 0;
+	left: 0;
 
-  &__container {
-    display: flex;
-    align-items: center;
+	@include md-min {
+		background-color: rgba($color-gray-dark, 0.25);
+	}
 
-    @extend %container;
-    gap: $gap;
-  }
+	&__container {
+		display: flex;
+		align-items: center;
+
+		@extend %container;
+		gap: $gap;
+	}
 }

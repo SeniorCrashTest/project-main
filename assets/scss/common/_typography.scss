@@ -21,13 +21,40 @@ body {
   background-color: $color-light;
 }
 
+@mixin lg-min {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
+
+@mixin lg-md {
+  @media (max-width: calc($lg - 1px)) and (min-width: $md) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: calc($md - 1px)) {
+    @content;
+  }
+}
+
 h1 {
   letter-spacing: 0.08em;
 
   font-family: $font-header;
-  font-size: 3.75rem;
   font-weight: 300;
   line-height: 1.2em;
+
+  @include lg-min {
+    font-size: 3.75rem;
+  }
+  @include lg-md {
+    font-size: 2.5rem;
+  }
+  @include md {
+    font-size: 1.875rem;
+  }
 }
 
 a {
