@@ -2,80 +2,79 @@
 @use "../../mixins/" as *;
 
 .form {
-	padding: $gap-lg 0;
+  padding: $gap-lg 0;
 
-	background-color: $color-primary;
+  background-color: $color-primary;
 
-	&__container {
-		display: grid;
+  &__container {
+    display: grid;
 
-		@extend %container;
-		gap: $gap;
+    @extend %container;
+    gap: $gap;
+    @include md-min {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include md-sm {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 
-		@include md-min {
-			grid-template-columns: repeat(3, 1fr);
-		}
+  .btn--primary {
+    width: 100%;
 
-		@include md-sm {
-			grid-template-columns: repeat(2, 1fr);
-		}
-	}
+    color: $color-light;
+    border-color: rgba($color-light, 0);
+    border-bottom-color: rgba($color-light, 0.20);
+    background-color: rgba($color-light, 0.10);
 
-	.btn--primary {
-		width: 100%;
+    &:hover,
+    &:focus {
+      cursor: pointer;
 
-		color: $color-light;
-		border-color: rgba($color-light, 0);
-		border-bottom-color: rgba($color-light, 0.20);
-		background-color: rgba($color-light, 0.10);
-
-		&:hover,
-		&:focus {
-			cursor: pointer;
-
-			border-color: $color-light;
-			background-color: $color-accent;
-		}
-	}
+      border-color: $color-light;
+      background-color: $color-accent;
+    }
+  }
 }
 
 .form-item {
-	@include md-sm {
-		&:nth-of-type(1) {
-			grid-column: 1 / span 2;
-		}
-	}
+  @include md-sm {
+    &:nth-of-type(1) {
+      grid-column: 1 / span 2;
+    }
+  }
 
-	&__input {
-		display: block;
-		width: 100%;
-		height: 60px;
-		padding-right: $gap-lg;
-		padding-left: $gap-lg;
+  &__input {
+    display: block;
 
-		transition: background-color 0.5s, border-color 0.5s;
-		letter-spacing: 0.15em;
+    width: 100%;
+    height: 60px;
+    padding-right: $gap-lg;
+    padding-left: $gap-lg;
 
-		color: $color-light;
-		border: 2px solid rgba($color-light, 0);
-		border-bottom-color: rgba($color-light, 0.25);
-		background-color: rgba($color-light, 0.05);
+    transition: background-color 0.5s, border-color 0.5s;
+    letter-spacing: 0.15em;
 
-		font-size: 1.125em;
+    color: $color-light;
+    border: 2px solid rgba($color-light, 0);
+    border-bottom-color: rgba($color-light, 0.25);
+    background-color: rgba($color-light, 0.05);
 
-		&::placeholder {
-			color: $color-gray;
-		}
+    font-size: 1.125em;
 
-		&:hover,
-		&:focus {
-			border-color: rgba($color-light, 0.15);
-			border-bottom-color: $color-light;
-			background-color: rgba($color-light, 0.15);
+    &::placeholder {
+      color: $color-gray;
+    }
 
-			&::placeholder {
-				color: lighten($color-gray, 15%);
-			}
-		}
-	}
+    &:hover,
+    &:focus {
+      border-color: rgba($color-light, 0.15);
+      border-bottom-color: $color-light;
+      background-color: rgba($color-light, 0.15);
+
+      &::placeholder {
+        color: lighten($color-gray, 15%);
+      }
+    }
+  }
 }

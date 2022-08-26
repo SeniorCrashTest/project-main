@@ -2,76 +2,75 @@
 @use "../../../mixins/" as *;
 
 .skill-item {
-	position: relative;
+  position: relative;
 
-	overflow: hidden;
+  overflow: hidden;
 
-	background-color: $color-primary;
+  background-color: $color-primary;
 
-	&__title {
-		position: relative;
-		z-index: 1;
+  &__title {
+    position: relative;
+    z-index: 1;
 
-		margin: 0;
-		letter-spacing: 0.1em;
+    margin: 0;
 
-		@include md-min {
-			font-size: 1.25rem;
-		}
+    letter-spacing: 0.1em;
 
-		@include md {
-			font-size: 1.125rem;
-		}
+    @include md-min {
+      font-size: 1.25rem;
+    }
+    @include md {
+      font-size: 1.125rem;
+    }
+    @include abs-position;
+  }
 
-		@include abs-position;
-	}
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-	&__link {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+    height: 100%;
+    padding: 1em;
 
-		height: 100%;
-		padding: 1em;
+    transition: color 0.5s;
+  }
 
-		transition: color 0.5s;
-	}
+  &__image {
+    transition: transform 0.5s;
 
-	&__image {
-		transition: transform 0.5s;
+    background-position: center;
+    background-size: cover;
 
-		background-position: center;
-		background-size: cover;
+    @include abs-position;
+  }
 
-		@include abs-position;
-	}
+  &__overlay {
+    transition: opacity 0.5s;
 
-	&__overlay {
-		transition: opacity 0.5s;
+    opacity: 0.8;
+    background-color: $color-primary;
 
-		opacity: 0.8;
-		background-color: $color-primary;
+    @include abs-position;
+  }
 
-		@include abs-position;
-	}
+  &:hover {
+    .skill-item__overlay {
+      opacity: 0.95;
+    }
 
-	&:hover {
-		.skill-item__overlay {
-			opacity: 0.95;
-		}
+    .skill-item__image {
+      transform: scale(1.1);
+    }
 
-		.skill-item__image {
-			transform: scale(1.1);
-		}
-
-		.skill-item__link {
-			color: $color-accent;
-		}
-	}
+    .skill-item__link {
+      color: $color-accent;
+    }
+  }
 }
 
 @for $i from 1 through 9 {
-	.skill-item:nth-of-type(#{$i}) {
-		grid-area: a#{$i};
-	}
+  .skill-item:nth-of-type(#{$i}) {
+    grid-area: a#{$i};
+  }
 }
