@@ -2,77 +2,76 @@
 @use "../../mixins/" as *;
 
 .footer {
-	padding: ($gap * 2.5) $gap (
+  padding: ($gap * 2.5) $gap (
 		$gap * 3.5
 	);
 
-text-align: center;
+  text-align: center;
 
-background-color: $color-primary;
+  background-color: $color-primary;
 
-&__container {
-	@extend %container;
-}
+  &__container {
+    @extend %container;
+  }
 
-&__social {
-	position: relative;
+  &__social {
+    position: relative;
 
-	display: grid;
-	justify-content: center;
+    display: grid;
+    justify-content: center;
 
-	margin-bottom: $gap-x2;
+    margin-bottom: $gap-x2;
 
-	grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
 
+    &::after {
+      position: absolute;
+      bottom: -$gap;
+      left: calc(50% - 75px / 2);
 
-	&::after {
-		position: absolute;
-		bottom: -$gap;
-		left: calc(50% - 75px / 2);
+      width: 75px;
+      height: 2px;
 
-		width: 75px;
-		height: 2px;
+      content: "";
 
-		content: "";
+      background-color: rgba($color-light, 0.1);
+    }
 
-		background-color: rgba($color-light, 0.1);
-	}
+    a {
+      display: block;
 
-	a {
-		display: block;
+      padding: $gap-sm;
 
-		padding: $gap-sm;
+      transition: color 0.5s;
 
-		transition: color 0.5s;
+      &:hover,
+      &:focus {
+        color: $color-accent;
+      }
+    }
 
-		&:hover,
-		&:focus {
-			color: $color-accent;
-		}
-	}
+    .fab {
+      font-size: 36px;
+    }
+  }
 
-	.fab {
-		font-size: 36px;
-	}
-}
+  &__copy {
+    span {
+      &:nth-of-type(1) {
+        margin-right: -0.5em;
 
-&__copy {
-	span {
-		&:nth-of-type(1) {
-			margin-right: -0.5em;
+        letter-spacing: 0.33em;
 
-			letter-spacing: 0.33em;
+        font-weight: 100;
+      }
 
-			font-weight: 100;
-		}
+      &:nth-of-type(2) {
+        letter-spacing: 0.05em;
 
-		&:nth-of-type(2) {
-			letter-spacing: 0.05em;
+        color: $color-gray-light;
 
-			color: $color-gray-light;
-
-			font-weight: 700;
-		}
-	}
-}
+        font-weight: 700;
+      }
+    }
+  }
 }
