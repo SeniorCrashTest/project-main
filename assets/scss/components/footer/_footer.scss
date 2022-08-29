@@ -1,10 +1,8 @@
-@use "../../presets/" as *;
-@use "../../mixins/" as *;
+@use "../../presets" as *;
+@use "../../mixins" as *;
 
 .footer {
-  padding: ($gap * 2.5) $gap (
-		$gap * 3.5
-	);
+  padding: ($gap * 2.5) $gap ($gap * 3.5);
 
   text-align: center;
 
